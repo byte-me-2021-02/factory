@@ -48,14 +48,23 @@ class Employee
   def print_info
     p "#{@first_name} #{@last_name} makes $#{@salary} per year."
   end
+
+  def give_annual_raise
+    # @salary = @salary * 1.05
+    @salary *= 1.05
+  end
 end
 
 employee1 = Employee.new("Majora", "Carter", 80000, true)
 employee1.print_info
+employee1.give_annual_raise
+employee1.print_info
+
 
 employee2 = Employee.new("Danilo", "Campos", 100000, false)
 employee2.print_info
-
+employee2.give_annual_raise
+employee2.print_info
 
 
 
