@@ -1,6 +1,6 @@
 class Employee
   attr_reader :first_name, :last_name, :salary
-  attr_writer :first_name
+  attr_writer :first_name, :active
   
   def initialize(input_options)
     @first_name = input_options[:first_name]
@@ -64,6 +64,14 @@ class Manager < Employee
       p employee.first_name
     end
   end
+
+  def fire_all_employees
+    employees.each do |employee|
+      employee.active = false
+    end
+    # p employees[0].active = false
+    # p employees[1].active = false
+  end
 end
 
 manager = Manager.new(first_name: "Manny", last_name: "Manderson", salary: 200000, active: true, employees: [employee1, employee2])
@@ -79,7 +87,11 @@ manager = Manager.new(first_name: "Manny", last_name: "Manderson", salary: 20000
 
 # manager.send_report
 
-manager.give_all_raises
+# manager.give_all_raises
+# p employee1.salary
+# p employee2.salary
+manager.fire_all_employees
 
-p employee1.salary
-p employee2.salary
+p employee1
+p employee2
+
