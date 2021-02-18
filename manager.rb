@@ -26,23 +26,25 @@ employee1 = Employee.new({
   :active => true
 })
 
-p employee1.first_name
-employee1.print_info
-p employee1.first_name
-employee1.first_name = "Benji"
-p employee1.first_name
-employee1.give_annual_raise
-employee1.print_info
+# p employee1.first_name
+# employee1.print_info
+# p employee1.first_name
+# employee1.first_name = "Benji"
+# p employee1.first_name
+# employee1.give_annual_raise
+# employee1.print_info
 
 
 employee2 = Employee.new(first_name: "Danilo", last_name: "Campos",salary:  100000, active: false)
-employee2.print_info
-employee2.give_annual_raise
-employee2.print_info
+# employee2.print_info
+# employee2.give_annual_raise
+# employee2.print_info
 # employee2.send_report
 
 
 class Manager < Employee
+  attr_reader :employees
+  
   def initialize(input_options)
     super
     @employees = input_options[:employees]
@@ -53,19 +55,31 @@ class Manager < Employee
     # some logic here to send reports
     p "just sent the report..."
   end
+
+  def give_all_raises
+    p "in give_all_raises"
+    # p employees[0].give_annual_raise
+    # p employees[1].give_annual_raise
+    employees.each do |employee|
+      p employee.first_name
+    end
+  end
 end
 
 manager = Manager.new(first_name: "Manny", last_name: "Manderson", salary: 200000, active: true, employees: [employee1, employee2])
 
 
-p manager.first_name
-manager.print_info
-p manager.first_name
-manager.first_name = "Benji"
-p manager.first_name
-manager.give_annual_raise
-manager.print_info
+# p manager.first_name
+# manager.print_info
+# p manager.first_name
+# manager.first_name = "Benji"
+# p manager.first_name
+# manager.give_annual_raise
+# manager.print_info
 
-manager.send_report
+# manager.send_report
 
-p manager
+manager.give_all_raises
+
+p employee1.salary
+p employee2.salary
