@@ -39,3 +39,26 @@ employee2 = Employee.new(first_name: "Danilo", last_name: "Campos",salary:  1000
 employee2.print_info
 employee2.give_annual_raise
 employee2.print_info
+# employee2.send_report
+
+
+class Manager < Employee
+  def send_report
+    p "about to send the report..."
+    # some logic here to send reports
+    p "just sent the report..."
+  end
+end
+
+manager = Manager.new(first_name: "Manny", last_name: "Manderson", salary: 200000, active: true)
+
+
+p manager.first_name
+manager.print_info
+p manager.first_name
+manager.first_name = "Benji"
+p manager.first_name
+manager.give_annual_raise
+manager.print_info
+
+manager.send_report
